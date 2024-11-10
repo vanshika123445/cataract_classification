@@ -87,6 +87,27 @@ The FastAPI server automatically generates API documentation:
 - **Swagger UI**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 - **ReDoc**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
+To focus on API deployment and include an image showing the response, you can create a section in your `README.md` to explain the process of deploying the API and demonstrate how to use it with an example image showing the expected response.
+
+Here’s a sample outline for your report, which you can include in the `README.md` file:
+
+#### **Response:**
+
+- **200 OK**:
+  ```json
+  {
+    "class": "Cataract",
+    "confidence": 0.95
+  }
+  ```
+
+- **400 Bad Request** (if no image is uploaded):
+  ```json
+  {
+    "detail": "No image uploaded"
+  }
+  ```
+
 
 ### 5.Challenges Faced
 
