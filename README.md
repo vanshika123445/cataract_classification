@@ -1,4 +1,3 @@
-
 # Cataract Classification Project
 
 This project is a binary image classification model designed to detect cataracts in eye images. It uses a deep learning model built on MobileNetV2, trained to classify images as either "cataract" or "normal." The trained model is deployed as an API using FastAPI to allow for easy integration and real-time inference.
@@ -32,7 +31,23 @@ This project is a binary image classification model designed to detect cataracts
     pip install -r requirements.txt
     ```
 
-### 2. Model Training
+### 2. Download the Dataset
+Download the dataset from the following link:  
+[Kaggle Cataract Image Dataset](https://www.kaggle.com/datasets/nandanp6/cataract-image-dataset)
+
+- After downloading, extract the dataset and rename the folder to `Dataset`.
+- Ensure the folder structure is as follows:
+  ```
+  Dataset/
+  ├── train/
+  │   ├── cataract/
+  │   └── normal/
+  └── test/
+      ├── cataract/
+      └── normal/
+  ```
+
+### 3. Model Training
 The `model_training.py` script is used for model training and evaluation.
 
 1. **Prepare the dataset**: Organize the images in the `train` and `test` folders with subfolders for `cataract` and `normal` images.
@@ -48,18 +63,18 @@ The `model_training.py` script is used for model training and evaluation.
    - Train the model for a set number of epochs.
    - Save the trained model as `cataract_classifier_model.h5`.
 
-### 3.Model Evaluation
+### 4. Model Evaluation
 
 After training, the following metrics are evaluated on the test set:
 
-Accuracy
-Confusion Matrix
-Classification Report (Precision, Recall, F1-Score)
-ROC Curve and AUC Score
+- Accuracy
+- Confusion Matrix
+- Classification Report (Precision, Recall, F1-Score)
+- ROC Curve and AUC Score
+
 These evaluations are included in the training script and plotted for easy interpretation of model performance.
 
-
-### 4. API Deployment
+### 5. API Deployment
 The FastAPI application (`app.py`) provides an API endpoint for model inference.
 
 1. **Run the FastAPI app**:
@@ -82,16 +97,12 @@ Using `curl`:
 curl -X POST "http://127.0.0.1:8000/predict/" -F "file=@path_to_your_image.jpg"
 ```
 
-### 4. API Documentation
+### 6. API Documentation
 The FastAPI server automatically generates API documentation:
 - **Swagger UI**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 - **ReDoc**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
-To focus on API deployment and include an image showing the response, you can create a section in your `README.md` to explain the process of deploying the API and demonstrate how to use it with an example image showing the expected response.
-
-Here’s a sample outline for your report, which you can include in the `README.md` file:
-
-#### **Response:**
+### 7. Response Examples
 
 - **200 OK**:
   ```json
@@ -108,14 +119,16 @@ Here’s a sample outline for your report, which you can include in the `README.
   }
   ```
 
+#### Example Response Image
+For visual reference, here's an example of an image upload and its response:
 
-### 5.Challenges Faced
+![API Response Example](path_to_example_image.png)
 
-Class Imbalance: Worked on balancing the data and augmenting images for better results.
-Overfitting: Addressed by using dropout layers and transfer learning to prevent overfitting.
-Deployment: Ensured compatibility with FastAPI for smooth image-based inference.
+### 8. Challenges Faced
+- **Class Imbalance**: Worked on balancing the data and augmenting images for better results.
+- **Overfitting**: Addressed by using dropout layers and transfer learning to prevent overfitting.
+- **Deployment**: Ensured compatibility with FastAPI for smooth image-based inference.
 
-### 6.Future Work
-
-Experimenting with different architectures like ResNet or EfficientNet.
-Implementing a web-based frontend for easier access to the API.
+### 9. Future Work
+- Experimenting with different architectures like ResNet or EfficientNet.
+- Implementing a web-based frontend for easier access to the API.
