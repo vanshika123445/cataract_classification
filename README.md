@@ -118,12 +118,7 @@ The FastAPI server automatically generates API documentation:
     "detail": "No image uploaded"
   }
   ```
-
-#### Example Response Image
-For visual reference, here's an example of an image upload and its response:
-
-![API Response Example](path_to_example_image.png)
-
+  
 ### 8. Challenges Faced
 - **Class Imbalance**: Worked on balancing the data and augmenting images for better results.
 - **Overfitting**: Addressed by using dropout layers and transfer learning to prevent overfitting.
